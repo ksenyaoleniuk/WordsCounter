@@ -44,7 +44,7 @@ void read_file(size_t block_size, string filename, deque<vector<string>> &que,mu
         m.unlock();
     }
 
-};
+}
 
 map<string, string> parsing_config(string filename){
     string line, delimiter;
@@ -65,4 +65,13 @@ map<string, string> parsing_config(string filename){
     }
     return mp;
 
-};
+}
+
+void write_file(const map<string,int> global_map, const string output_file) {
+    ofstream myfile (output_file);
+    myfile.open ("res.txt");
+    for(auto &x : global_map){
+        myfile << "\""<< x.->first << "\"" << ": " << x.->second << endl;
+    }
+    myfile.close();
+}
